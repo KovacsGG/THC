@@ -377,10 +377,14 @@ class NPC {
     if (!this.biomeId) return [];
     var npcs = Biome.byId(this.biomeId).inBiome();
     var others = [];
+    var explicit = Connection.toNPC(this.name);
     for (var i = 0; i < npcs.length; i++) {
       if (npcs[i] != this.name) others.push(npcs[i]);
+      for (var j = 0; j < explicit.length; j++) {
+        if (npcs[i] == explicit[j]) explicit.splice(j, 1);
+      }
     }
-    return others;
+    return others.concat(explicit);
   }
 }
 
