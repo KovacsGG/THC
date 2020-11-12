@@ -1,0 +1,141 @@
+p {
+  margin: 0;
+}
+
+.biome {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  padding: 1% 5%;
+  border: 0.1875em solid transparent;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.biomeContainer {
+  padding-top: 27.54%;
+  position: relative;
+}
+
+.plusIcon {
+  position: absolute;
+  right: 5%;
+  top: 35%;
+  bottom: 35%;
+  height: 30%;
+  outline: 0;
+  filter: drop-shadow(2px 4px 6px black);
+}
+
+.plusIcon:active {
+  filter: drop-shadow(2px 4px 4px black);
+}
+
+.room {
+  border: 0.1875em solid transparent;
+  display:inline-block;
+  padding: 1%;
+}
+
+img {
+  height: 3em;
+}
+
+div.NPC {
+  padding: 0px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+body {
+  margin: 0;
+}
+
+svg {
+  pointer-events: none;
+  touch-action: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+svg line {
+  stroke-linecap: round;
+  stroke: lightblue;
+  stroke-width: 0.15em;
+  filter: url(#glow);
+}
+
+#wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+#main {
+  position: relative;
+  width: min-content;
+  min-width: 25em;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 0;
+  margin: 0 0.5%;
+}
+
+#side {
+  flex-basis: 15em;
+  flex-grow: 1;
+  max-width: 32em;
+}
+
+#happinessStats {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+#NPCStats, .infoCard {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.infoCard {
+  border-top: 0.0625em solid black;
+}
+
+.statInfo {
+  width: 100%;
+}
+
+.biomeStat, .NPCStat {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.NPCMiniIcon {
+  height: 1.75em;
+}
+
+.biomeStatCell, .NPCStatCell {
+  text-align: center;
+}
+
+span.good {
+  color: green;
+}
+
+span.bad {
+  color: red;
+}
+
+.statIcon {
+  padding: 1%;
+}

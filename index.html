@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Calculate Terraria's NPC's happiness quickly with this online tool">
+    <meta name="author" content="kgello">
+    <meta name="keywords" content="terraria, NPC, happiness, tool, calculator">
+    <title>Terraria NPC Hapiness Calulator</title>
+
+    <script src="script.js" defer></script>
+    <script src="DragDropTouch.js"></script>
+    <link href="style.css" rel="stylesheet">
+  </head>
+  <body>
+    <div id="wrapper">
+      <div id="main">
+        <svg id="connections">
+          <filter id="glow" x="0" y="0" width="100%" height="100%" filterUnits="userSpaceOnUse">
+            <feDropShadow dx="0" dy="0" stdDeviation="1" flood-color="blue" flood-opacity="1" />
+          </filter>
+        </svg>
+        There should be at least 120 tiles betweeen biomes and 25 tiles between houses. Rooms may be chained by right clicking (double tapping) on an NPC and selecting a close neighbour (>25 tiles) by left clicking (tapping) on them.<br>
+        <button onClick="moveToPreferredBiome()">Move all to preferred biome</button>
+      </div>
+      <div id="side">
+        <div id="NPCStats">
+        </div>
+        <div id="happinessStats">
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
