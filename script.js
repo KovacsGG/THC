@@ -291,7 +291,7 @@ class NPC {
 
     if (this.happiness > 1.5) this.actualHappiness = 1.5;
     else if (this.happiness < 0.75) this.actualHappiness = 0.75;
-    else this.actualHappiness = Math.round(this.happiness*100/5) * 5 / 100;
+    else this.actualHappiness = Math.round(this.happiness*100) / 100;
 
     this.updateInfoCard();
   }
@@ -341,7 +341,7 @@ class NPC {
         <img src="res/NPCs/${this.name}.png" alt="${this.name}" onmouseover="mouse_handler(event)" onclick="mouse_handler(event)">
       </div>
       <div class="statInfo">
-        ${this.name} ${this.actualHappiness} (${this.happiness.toFixed(2)})
+        ${this.name} ${this.actualHappiness}
         ${biomeInfo}
         ${roomieInfo}
         ${crowdedInfo}
