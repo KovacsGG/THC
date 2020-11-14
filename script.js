@@ -298,7 +298,7 @@ class NPC {
       this.roomHappiness *= this.roomieHappiness[i];
     }
     this.crowdedHappiness = roomies.length >= 3 ? 1.05**(roomies.length - 2) : 1;
-    this.peacefulHappiness = (neighbours.length <= 3 && roomies.length <= 2) ? 0.95 : 1;
+    this.peacefulHappiness = (neighbours.length - roomies.length <= 3 && roomies.length <= 2) ? 0.95 : 1;
 
     this.happiness = this.biomeHappiness * this.roomHappiness * this.crowdedHappiness * this.peacefulHappiness;
 
