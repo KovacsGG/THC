@@ -1,7 +1,7 @@
 INIT_BIOMES = ["unassigned", "Mushroom", "Hallow", "Jungle", "Snow", "Ocean", "Desert", "Underground", "Forest"];
 
 class Biome {
-  constructor(type) {
+  constructor(type, original = false) {
     this.name = type + "-" + Biome.biomes.length;
     this.type = type;
     this.rooms = {};
@@ -50,16 +50,29 @@ class Biome {
       this.div.style.backgroundImage = "url(res/biomes/" + this.type + ".png)";
       var plus = document.createElement("INPUT");
       plus.type = "image";
-      plus.src = "res/plus.png";
-      plus.alt = "Add new " + this.type;
       plus.className = "plusIcon";
-      plus.addEventListener("click", plusClick_handler);
+      if (original){
+        plus.src = "res/plus.png";
+        plus.alt = "Add new " + this.type;
+        plus.addEventListener("click", plusClick_handler);
+      } else {
+        plus.src = "res/minus.png";
+        plus.alt = "Delete biome";
+        plus.addEventListener("click", minusClick_handler);
+      }
       this.div.appendChild(plus);
     } else {
       container.style.paddingTop = 0;
       this.div.style.position = "relative";
     }
     document.getElementById("main").appendChild(container);
+  }
+  delete() {
+    var NPCs = this.inBiome();
+    for (var i = 0; i < NPCs.length; i++) {
+      NPC.byId(NPCs[i]).move("unassigned-0", "0-unassigned-0");
+    }
+    this.div.parentElement.remove();
   }
   static biomes = [];
   static byId(id) {
@@ -392,7 +405,7 @@ window.addEventListener('DOMContentLoaded', () => {
   console.log("Contentload");
   const biomeDivs = document.getElementsByClassName("biome");
   for (var i = 0; i < INIT_BIOMES.length; i++) {
-    new Biome(INIT_BIOMES[i]);
+    new Biome(INIT_BIOMES[i], true);
   }
   Biome.byId("unassigned-0").addRoom();
 
@@ -474,6 +487,12 @@ function drop_handler(e) {
 function plusClick_handler(e) {
   e.preventDefault();
   new Biome(Biome.byId(this.parentElement.id).type);
+  Connection.refreshAll();
+}
+
+function minusClick_handler(e) {
+  e.preventDefault();
+  Biome.byId(this.parentElement.id).delete();
   Connection.refreshAll();
 }
 
