@@ -340,25 +340,26 @@ class NPC {
 
     this.infoCard.style.display = "";
     var biome = Biome.byId(this.biomeId).type;
-    var biomeInfo = this.biomeHappiness != 1 ? `<p><span class="${this.biomeHappiness < 1 ? "good" : "bad"}">${this.biomeHappiness}</span> (${biome})</p>` : "";
+    var biomeInfo = this.biomeHappiness != 1 ? `<p>×<span class="${this.biomeHappiness < 1 ? "good" : "bad"}">${this.biomeHappiness}</span> (${biome})</p>` : "";
     var roomies = this.roomies();
     var roomieInfo = "";
     for (var j = 0; j < roomies.length; j++) {
-      roomieInfo += this.roomieHappiness[j] != 1 ? `<p><span class="${this.roomieHappiness[j] < 1 ? "good" : "bad"}">${this.roomieHappiness[j]}</span> (${roomies[j]})</p>` : "";
+      roomieInfo += this.roomieHappiness[j] != 1 ? `<p>×<span class="${this.roomieHappiness[j] < 1 ? "good" : "bad"}">${this.roomieHappiness[j]}</span> (${roomies[j]})</p>` : "";
     }
-    var crowdedInfo =  this.crowdedHappiness != 1 ? `<p><span class="bad">${this.crowdedHappiness.toFixed(2)}</span> (${roomies.length-2} too many roommates)</p>` : "";
-    var peacefulInfo = this.peacefulHappiness != 1 ? "<p><span class=\"good\">0.95</span> (Peacful surroundings)</p>" : "";
+    var crowdedInfo =  this.crowdedHappiness != 1 ? `<p>×<span class="bad">${this.crowdedHappiness.toFixed(2)}</span> (${roomies.length-2} too many roommates)</p>` : "";
+    var peacefulInfo = this.peacefulHappiness != 1 ? "<p>×<span class=\"good\">0.95</span> (Peacful surroundings)</p>" : "";
 
     this.infoCard.innerHTML = `
       <div class="statIcon" id="${this.name}">
         <img src="res/NPCs/${this.name}.png" alt="${this.name}" onmouseover="mouse_handler(event)" onclick="mouse_handler(event)">
       </div>
       <div class="statInfo">
-        ${this.name} ${this.actualHappiness}
+        ${this.name}
         ${biomeInfo}
         ${roomieInfo}
         ${crowdedInfo}
         ${peacefulInfo}
+        <p style="border-top: 1px solid lightgray;">=${this.happiness.toFixed(4)} overall (${this.actualHappiness} effectively)</p>
       </div>
       `
   }

@@ -90,7 +90,7 @@ svg line {
 }
 
 #side {
-  flex-basis: 15em;
+  flex-basis: 16.75em;
   flex-grow: 1;
   max-width: 32em;
 }
