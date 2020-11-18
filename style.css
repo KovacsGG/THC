@@ -139,4 +139,6 @@ span.bad {
 
 .statIcon {
   padding: 1%;
+  text-align: center;
+  flex-basis: 3.3em;
 }
