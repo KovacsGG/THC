@@ -255,6 +255,10 @@ class NPC {
     img.addEventListener("contextmenu", contextmenu_handler);
     img.addEventListener("dblclick", contextmenu_handler);
     this.dom.appendChild(img);
+    this.happinessLabel = document.createElement("P");
+    this.happinessLabel.className = "happinessLabel";
+    this.happinessLabel.innerHTML = this.actualHappiness;
+    this.dom.appendChild(this.happinessLabel);
 
     this.infoCard = document.createElement("DIV");
     this.infoCard.id = id + " infoCard";
@@ -354,7 +358,7 @@ class NPC {
         <img src="res/NPCs/${this.name}.png" alt="${this.name}" onmouseover="mouse_handler(event)" onclick="mouse_handler(event)">
       </div>
       <div class="statInfo">
-        ${this.name}
+        <p style="font-weight: 600;">${this.name}</p>
         ${biomeInfo}
         ${roomieInfo}
         ${crowdedInfo}
@@ -362,6 +366,7 @@ class NPC {
         <p style="border-top: 1px solid lightgray;">=${this.happiness.toFixed(4)} overall (${this.actualHappiness} effectively)</p>
       </div>
       `
+      this.happinessLabel.innerHTML = this.actualHappiness;
   }
   biomeRelation(biomeType) {
     for (var i = 0; i < this.biomePreference.name.length; i++) {
