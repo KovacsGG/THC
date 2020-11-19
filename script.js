@@ -441,6 +441,7 @@ window.addEventListener('DOMContentLoaded', () => {
   new NPC("Wizard",           {name: ["Hallow","Ocean"], relation: [0.94,1.06]},        {name: ["Princess", "Golfer", "Merchant", "Witch Doctor", "Cyborg"], relation: [0.94, 0.88, 0.94, 1.06, 1.12]});
   new NPC("Zoologist",        {name: ["Forest","Desert"], relation: [0.94,1.06]},       {name: ["Princess", "Witch Doctor", "Golfer", "Angler", "Arms Dealer"], relation: [0.94, 0.88, 0.94, 1.06, 1.12]});
 });
+var global_drag_flag = false;
 
 function mouse_handler(e) {
   if (e.type == "click" && Connection.A) {
@@ -456,18 +457,22 @@ function contextmenu_handler(e) {
 
 function dragstart_handler(e) {
   e.dataTransfer.setData("text/plain", e.target.parentElement.id);
+  global_drag_flag = true;
   e.dataTransfer.dropEffect = "move";
 }
 
 function dragend_handler(e) {
+  global_drag_flag = false;
   e.target.parentElement.style.borderColor = "";
 }
 
 function dragover_handler(e) {
   e.stopPropagation();
   e.preventDefault();
-  e.dataTransfer.dropEffect = "move";
-  this.style.borderColor = "orange";
+  if (global_drag_flag) {
+    e.dataTransfer.dropEffect = "move";
+    this.style.borderColor = "orange";
+  }
 }
 
 function dragleave_handler(e) {
