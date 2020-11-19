@@ -408,7 +408,6 @@ class NPC {
 }
 
 window.addEventListener('DOMContentLoaded', () => {
-  console.log("Contentload");
   const biomeDivs = document.getElementsByClassName("biome");
   for (var i = 0; i < INIT_BIOMES.length; i++) {
     new Biome(INIT_BIOMES[i], true);
