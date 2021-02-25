@@ -100,17 +100,17 @@ svg line {
 
 #main {
   position: relative;
-  width: min-content;
-  min-width: 25em;
+  flex-basis: 28em;
+  max-width: 40em;
   display: flex;
   flex-direction: column;
-  flex-grow: 0;
+  flex-grow: 1;
   margin: 0 0.5%;
 }
 
 #side {
-  flex-basis: 16.75em;
-  flex-grow: 1;
+  flex-basis: 25em;
+  flex-grow: 0.6;
   max-width: 32em;
 }
 
