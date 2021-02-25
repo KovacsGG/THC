@@ -1,0 +1,26 @@
+{
+  "short_name": "THC",
+  "name": "Terraria NPC Happiness Calucator",
+  "icons": [
+    {
+      "src": "res/appicon-192.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "res/appicon-512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any maskable"
+    }
+  ],
+  "start_url": "index.html",
+  "background_color": "#2e438e",
+  "display": "standalone",
+  "scope": ".",
+  "theme_color": "#253674",
+  "shortcuts": [],
+  "description": "Create housing mockups for NPCs.",
+  "screenshots": []
+}

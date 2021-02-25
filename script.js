@@ -440,6 +440,10 @@ window.addEventListener('DOMContentLoaded', () => {
   new NPC("Witch Doctor",     {name: ["Jungle","Hallow"], relation: [0.94,1.06]},       {name: ["Princess", "Dryad", "Guide", "Nurse", "Truffle"], relation: [0.94, 0.94, 0.94, 1.06, 1.12]});
   new NPC("Wizard",           {name: ["Hallow","Ocean"], relation: [0.94,1.06]},        {name: ["Princess", "Golfer", "Merchant", "Witch Doctor", "Cyborg"], relation: [0.94, 0.88, 0.94, 1.06, 1.12]});
   new NPC("Zoologist",        {name: ["Forest","Desert"], relation: [0.94,1.06]},       {name: ["Princess", "Witch Doctor", "Golfer", "Angler", "Arms Dealer"], relation: [0.94, 0.88, 0.94, 1.06, 1.12]});
+
+  if ('serviceWorker' in navigator) {
+   navigator.serviceWorker.register('sw.js');
+ }
 });
 var global_drag_flag = false;
 
