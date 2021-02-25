@@ -1,5 +1,19 @@
+@font-face {
+  font-family: Patrick Hand;
+  src: url(res/PatrickHand-Regular.ttf);
+}
+
 p {
+  padding: 0 1em;
   margin: 0;
+}
+
+button {
+  margin: 0 1em;
+}
+
+a {
+  color: gold;
 }
 
 .biome {
@@ -54,8 +68,12 @@ div.NPC {
 }
 
 body {
-  margin: 0;
   font-family: "Patrick Hand", sans-serif;
+  margin: 0;
+  background-color: #2e438e;
+
+  color: #FFFFFF;
+  image-rendering: crisp-edges;
 }
 
 svg {
